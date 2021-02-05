@@ -7,21 +7,17 @@ import android.util.Log
 import android.view.View
 import android.widget.EditText
 import androidx.activity.viewModels
-import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
-import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
-import dev.geronso.smartbusiness.Manager
 import dev.geronso.smartbusiness.Profile
 import dev.geronso.smartbusiness.R
 import dev.geronso.smartbusiness.ViewModel
-import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_registration.*
 import kotlinx.android.synthetic.main.activity_registration.btn_register
-import kotlinx.android.synthetic.main.activity_registration.et_login
+import kotlinx.android.synthetic.main.activity_registration.new_post_contact
 
 class RegistrationActivity : AppCompatActivity() {
 
@@ -32,10 +28,10 @@ class RegistrationActivity : AppCompatActivity() {
         setContentView(R.layout.activity_registration)
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
         actionBar?.hide()
-        val emailEditText = et_email
-        val phoneEditText = et_phone
-        val loginEditText = et_login
-        val passwordEditText = findViewById<EditText>(R.id.et_password)
+        val emailEditText = new_post_title
+        val phoneEditText = new_post_tags
+        val loginEditText = new_post_contact
+        val passwordEditText = findViewById<EditText>(R.id.new_pos_role)
         sendProfileId()
         btn_register.setOnClickListener {
             saveProfileData(

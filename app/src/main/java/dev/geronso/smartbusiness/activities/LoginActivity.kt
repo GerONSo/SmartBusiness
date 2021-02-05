@@ -2,13 +2,10 @@ package dev.geronso.smartbusiness.activities
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.google.firebase.database.ktx.database
-import com.google.firebase.ktx.Firebase
 import dev.geronso.smartbusiness.R
 import kotlinx.android.synthetic.main.activity_login.*
 
@@ -20,8 +17,8 @@ class LoginActivity : AppCompatActivity() {
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
         actionBar?.hide()
         val regButton = findViewById<TextView>(R.id.btn_register)
-        val loginEditText = findViewById<EditText>(R.id.et_login)
-        val passwordEditText = findViewById<EditText>(R.id.et_password)
+        val loginEditText = findViewById<EditText>(R.id.new_post_contact)
+        val passwordEditText = findViewById<EditText>(R.id.new_pos_role)
         regButton.setOnClickListener {
             val intent = Intent(this, RegistrationActivity::class.java)
             startActivity(intent)
