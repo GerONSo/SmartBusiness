@@ -17,18 +17,12 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-        // Hide the status bar.
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
-// Remember that you should never show the action bar if the
-// status bar is hidden, so hide that too if necessary.
         actionBar?.hide()
         val regButton = findViewById<TextView>(R.id.btn_register)
         val loginEditText = findViewById<EditText>(R.id.et_login)
         val passwordEditText = findViewById<EditText>(R.id.et_password)
         regButton.setOnClickListener {
-            val database = Firebase.database
-            val myRef = database.getReference("message")
-            myRef.setValue("Hello, World!")
             val intent = Intent(this, RegistrationActivity::class.java)
             startActivity(intent)
         }
