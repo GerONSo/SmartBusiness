@@ -3,5 +3,7 @@
     <string name="tv_account"><u>Нет аккаунта?</u></string>
     <string name="no_account"><u>Продолжить без аккаунта</u></string>
     <string name="email">Smart Business</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

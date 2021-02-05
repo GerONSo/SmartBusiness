@@ -15,8 +15,6 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
         // Hide the status bar.
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
-// Remember that you should never show the action bar if the
-// status bar is hidden, so hide that too if necessary.
         actionBar?.hide()
         val regButton = findViewById<TextView>(R.id.btn_register)
         val loginEditText = findViewById<EditText>(R.id.et_login)

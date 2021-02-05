@@ -3,6 +3,7 @@ package dev.geronso.smartbusiness.activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.EditText
 import dev.geronso.smartbusiness.Manager
 import dev.geronso.smartbusiness.Profile
@@ -17,6 +18,8 @@ class RegistrationActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registration)
+        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
+        actionBar?.hide()
         val emailEditText = et_email
         val phoneEditText = et_phone
         val loginEditText = et_login
