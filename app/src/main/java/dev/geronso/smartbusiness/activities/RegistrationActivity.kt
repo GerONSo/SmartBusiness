@@ -14,13 +14,10 @@ import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
-import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
-import dev.geronso.smartbusiness.Manager
 import dev.geronso.smartbusiness.Profile
 import dev.geronso.smartbusiness.R
 import dev.geronso.smartbusiness.ViewModel
-import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_registration.*
 import kotlinx.android.synthetic.main.activity_registration.btn_register
 import kotlinx.android.synthetic.main.activity_registration.et_login

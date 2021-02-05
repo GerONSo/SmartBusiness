@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Window
 import android.view.WindowManager
+import android.view.View
 import android.widget.EditText
 import android.widget.TextView
 import androidx.activity.viewModels

@@ -60,7 +60,7 @@
         <EditText
             android:layout_width="0dp"
             android:layout_height="60dp"
-            android:id="@+id/et_password"
+            android:id="@+id/et_passwd"
             app:layout_constraintLeft_toLeftOf="parent"
             android:fontFamily="@font/ubuntu"
             app:layout_constraintRight_toRightOf="parent"
@@ -78,7 +78,7 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:id="@+id/btn_login"
-            app:layout_constraintTop_toBottomOf="@id/et_password"
+            app:layout_constraintTop_toBottomOf="@id/et_passwd"
             android:layout_marginTop="32dp"
             android:background="@drawable/btn_black"
             android:fontFamily="@font/ubuntu"
