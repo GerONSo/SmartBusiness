@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Smart Business</string>
+    <string name="tv_account"><u>Нет аккаунта?</u></string>
 </resources>
