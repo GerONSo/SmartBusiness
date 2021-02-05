@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/search_item"
+        android:icon="@drawable/loupe"
+        android:title="search" />
+
+    <item
+        android:id="@+id/new_post_item"
+        android:icon="@drawable/account"
+        android:title="new post" />
+
+    <item
+        android:id="@+id/message_item"
+        android:icon="@drawable/messenger"
+        android:title="messanger" />
+
+    <item
+        android:id="@+id/account_item"
+        android:icon="@drawable/account"
+        android:title="account" />
+
+</menu>
