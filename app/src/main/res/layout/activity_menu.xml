@@ -11,6 +11,9 @@
         android:layout_height="wrap_content"
         android:id="@+id/bottom_bar"
         app:itemRippleColor="@color/colorAccent"
+        app:itemTextColor="@drawable/bottom_navigation_color"
+        app:itemIconTint="@drawable/bottom_navigation_color"
+        android:backgroundTint="@null"
         app:menu="@menu/items"
         app:layout_constraintBottom_toBottomOf="parent"/>
 

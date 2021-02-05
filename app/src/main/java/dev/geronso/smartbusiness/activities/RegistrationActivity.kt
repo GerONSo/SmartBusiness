@@ -5,8 +5,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.view.WindowManager
 import android.widget.EditText
 import androidx.activity.viewModels
+import androidx.core.content.ContextCompat
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -30,8 +32,9 @@ class RegistrationActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registration)
-        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
-        actionBar?.hide()
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+        window.statusBarColor = ContextCompat.getColor(this, R.color.colorAccent)
         val emailEditText = et_email
         val phoneEditText = et_phone
         val loginEditText = et_login
@@ -61,6 +64,7 @@ class RegistrationActivity : AppCompatActivity() {
                     lastId = dataSnapshot.value as Long
                     viewModel.manager.currentProfile?.id = lastId
                     database.child("lastId").setValue(lastId?.plus(1))
+                    btn_register.isClickable = true
                 }
             }
 
@@ -77,7 +81,7 @@ class RegistrationActivity : AppCompatActivity() {
     }
 
     private fun saveProfileData(email: String, phone: String, login: String, password: String) {
-        val profile = Profile(email, phone, login, password)
+        val profile = Profile(email = email, phone = phone, login = login, password = password)
         val id = viewModel.manager.currentProfile?.id
         viewModel.manager.currentProfile = profile
         viewModel.manager.currentProfile?.id = id

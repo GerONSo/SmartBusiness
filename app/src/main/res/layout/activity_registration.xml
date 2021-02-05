@@ -98,7 +98,8 @@
             android:text="Зарегистрироваться"
             app:backgroundTint="@null"
             app:layout_constraintTop_toBottomOf="@id/et_password_confirm"
-            tools:layout_editor_absoluteX="60dp" />
+            tools:layout_editor_absoluteX="60dp"
+            android:clickable="false"/>
 
         <TextView
             android:id="@+id/btn_no_account"
