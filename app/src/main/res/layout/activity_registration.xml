@@ -4,43 +4,101 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorAccent"
     tools:context=".activities.RegistrationActivity">
 
-    <EditText
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/text_reg"
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/et_email"
-        app:layout_constraintTop_toTopOf="parent"/>
+        android:text="Регистрация"
+        android:textSize="32sp"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/const_layout"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/et_phone"
-        app:layout_constraintTop_toBottomOf="@id/et_email"/>
 
-    <EditText
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/et_login"
-        app:layout_constraintTop_toBottomOf="@id/et_phone"/>
+        android:id="@+id/const_layout"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@drawable/layout_background"
+        android:paddingLeft="60dp"
+        android:layout_marginTop="24dp"
+        android:paddingRight="60dp"
+        android:paddingTop="30dp"
+        android:elevation="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/text_reg">
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/et_password"
-        app:layout_constraintTop_toBottomOf="@id/et_login"/>
+        <EditText
+            android:id="@+id/et_email"
+            android:layout_width="match_parent"
+            android:hint="Электронная почта"
+            android:layout_marginTop="28dp"
+            android:layout_height="wrap_content"
+            style="@style/AppTheme.EditText"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/btn_register"
-        app:layout_constraintTop_toBottomOf="@id/et_password"
-        android:text="Зарегистрироваться"/>
+        <EditText
+            android:id="@+id/et_phone"
+            android:layout_marginTop="30dp"
+            android:hint="Номер телефона"
+            android:layout_width="match_parent"
+            style="@style/AppTheme.EditText"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/et_email" />
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/btn_no_account"
-        app:layout_constraintTop_toBottomOf="@id/btn_register"
-        android:text="Продолжить без аккаунта"/>
+        <EditText
+            android:id="@+id/et_login"
+            android:layout_width="match_parent"
+            android:hint="Логин"
+            android:layout_marginTop="30dp"
+            style="@style/AppTheme.EditText"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/et_phone" />
+
+        <EditText
+            android:id="@+id/et_password"
+            android:layout_marginTop="30dp"
+             android:hint="Пароль"
+            android:layout_width="match_parent"
+            style="@style/AppTheme.EditText"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/et_login" />
+        <EditText
+            android:layout_width="match_parent"
+            android:hint="Подтвердите пароль"
+
+            android:layout_height="wrap_content"
+            android:id="@+id/et_password_confirm"
+            android:layout_marginTop="30dp"
+            style="@style/AppTheme.EditText"
+            app:layout_constraintTop_toBottomOf="@+id/et_password"
+            />
+
+        <Button
+            android:id="@+id/btn_register"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="Зарегистрироваться)"
+            android:background="@drawable/btn_black"
+            app:backgroundTint="@null"
+            app:layout_constraintTop_toBottomOf="@id/et_password_confirm" />
+
+        <TextView
+            android:id="@+id/btn_no_account"
+            android:layout_marginTop="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/no_account"
+            android:gravity="center"
+            android:textColor="@color/blackPrimary"
+            app:layout_constraintTop_toBottomOf="@id/btn_register" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
