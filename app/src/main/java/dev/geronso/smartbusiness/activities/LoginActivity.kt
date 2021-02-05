@@ -17,8 +17,8 @@ class LoginActivity : AppCompatActivity() {
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
         actionBar?.hide()
         val regButton = findViewById<TextView>(R.id.btn_register)
-        val loginEditText = findViewById<EditText>(R.id.new_post_contact)
-        val passwordEditText = findViewById<EditText>(R.id.new_pos_role)
+        val loginEditText = findViewById<EditText>(R.id.et_login)
+        val passwordEditText = findViewById<EditText>(R.id.et_passwd)
         regButton.setOnClickListener {
             val intent = Intent(this, RegistrationActivity::class.java)
             startActivity(intent)

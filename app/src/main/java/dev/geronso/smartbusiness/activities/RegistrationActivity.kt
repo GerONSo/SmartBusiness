@@ -17,7 +17,7 @@ import dev.geronso.smartbusiness.R
 import dev.geronso.smartbusiness.ViewModel
 import kotlinx.android.synthetic.main.activity_registration.*
 import kotlinx.android.synthetic.main.activity_registration.btn_register
-import kotlinx.android.synthetic.main.activity_registration.new_post_contact
+import kotlinx.android.synthetic.main.activity_registration.et_login
 
 class RegistrationActivity : AppCompatActivity() {
 
@@ -28,10 +28,10 @@ class RegistrationActivity : AppCompatActivity() {
         setContentView(R.layout.activity_registration)
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
         actionBar?.hide()
-        val emailEditText = new_post_title
-        val phoneEditText = new_post_tags
-        val loginEditText = new_post_contact
-        val passwordEditText = findViewById<EditText>(R.id.new_pos_role)
+        val emailEditText = et_email
+        val phoneEditText = et_phone_numer
+        val loginEditText = et_login
+        val passwordEditText = findViewById<EditText>(R.id.et_passwd)
         sendProfileId()
         btn_register.setOnClickListener {
             saveProfileData(
