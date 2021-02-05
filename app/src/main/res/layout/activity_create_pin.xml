@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
     tools:context=".activities.CreatePINActivity">
 
     <TextView
@@ -14,6 +16,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginBottom="32dp"
+        android:fontFamily="@font/ubuntu"
         android:text="Введите 4-значный пароль"
         android:textColor="@color/blackPrimary"
         android:textSize="24sp"/>
@@ -26,6 +29,8 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintVertical_bias="0.3"/>
+        app:layout_constraintVertical_bias="0.3"
+        app:scv_symbolBorderColor="@color/blackPrimary"
+        app:scv_symbolBorderWidth="5dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,15 +1,22 @@
 package dev.geronso.smartbusiness.activities
 
+import android.app.Activity
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+import android.view.View
+import android.view.WindowManager
+import android.view.inputmethod.InputMethodManager
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import com.fraggjkee.smsconfirmationview.SmsConfirmationView
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
-import dev.geronso.smartbusiness.*
+import dev.geronso.smartbusiness.PINChecker
+import dev.geronso.smartbusiness.PINStatus
+import dev.geronso.smartbusiness.R
+import dev.geronso.smartbusiness.ViewModel
 import kotlinx.android.synthetic.main.activity_create_pin.*
+
 
 class CreatePINActivity : AppCompatActivity() {
 
@@ -18,6 +25,8 @@ class CreatePINActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_pin)
+        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
+        actionBar?.hide()
         val pinView = findViewById<SmsConfirmationView>(R.id.pin_view)
         when (PINChecker.status) {
             PINStatus.UNSELECTED -> {
@@ -71,7 +80,13 @@ class CreatePINActivity : AppCompatActivity() {
             .setValue(viewModel.manager.currentProfile?.pin)
     }
 
-    fun correctPIN(code: String): Boolean {
-        return true
+    override fun onBackPressed() {
+        if(PINChecker.status == PINStatus.CONFIRMED) {
+            PINChecker.status = PINStatus.SELECTED
+        }
+        if(PINChecker.status == PINStatus.SELECTED) {
+            PINChecker.status = PINStatus.UNSELECTED
+        }
+        super.onBackPressed()
     }
 }
