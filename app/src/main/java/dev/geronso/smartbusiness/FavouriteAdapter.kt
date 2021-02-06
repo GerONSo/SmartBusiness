@@ -8,8 +8,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.card.view.*
 
-open class SearchAdapter(open val manager: Manager) : RecyclerView.Adapter<SearchAdapter.ViewHolder>() {
-
+class FavouriteAdapter(open val manager: Manager) : RecyclerView.Adapter<FavouriteAdapter.ViewHolder>(){
     inner class ViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
         val image = view.card_image!!
         val name = view.card_name!!
@@ -20,19 +19,17 @@ open class SearchAdapter(open val manager: Manager) : RecyclerView.Adapter<Searc
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         resources = parent.resources
-        return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.card, parent, false))
+        return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.card_account, parent, false))
     }
 
-    override fun getItemCount(): Int {
-        return manager.postList.size
-    }
+    override fun getItemCount(): Int = 3
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 //        manager.postList[position].image?.let {
-            holder.image.setImageBitmap(BitmapFactory.decodeResource(resources, R.drawable.city))
+        holder.image.setImageBitmap(BitmapFactory.decodeResource(resources, R.drawable.city))
 //        }
-        holder.name.text = manager.postList[0].title
-        var allTags = manager.postList[0].tags
+        holder.name.text = manager.allPostList[0].title
+        var allTags = manager.allPostList[0].tags
         holder.tags.text = allTags
         holder.view.setOnClickListener {
             manager.openPostActivity()

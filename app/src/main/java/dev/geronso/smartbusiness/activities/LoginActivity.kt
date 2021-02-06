@@ -19,10 +19,12 @@ import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.ktx.database
 import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
+import dev.geronso.smartbusiness.BigPost
 import dev.geronso.smartbusiness.Profile
 import dev.geronso.smartbusiness.R
 import dev.geronso.smartbusiness.ViewModel
 import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.android.synthetic.main.fragment_new_post.*
 
 
 class LoginActivity : AppCompatActivity() {
@@ -36,6 +38,7 @@ class LoginActivity : AppCompatActivity() {
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
         window.statusBarColor = ContextCompat.getColor(this, R.color.colorAccent)
+
         val regButton = findViewById<TextView>(R.id.btn_register)
         val loginEditText = findViewById<EditText>(R.id.et_login)
         val passwordEditText = findViewById<EditText>(R.id.et_passwd)
@@ -52,8 +55,8 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun isCorrectLoginPassword(login: String, password: String): Boolean {
-        val database = Firebase.database.reference.child("users")
 
+        val database = Firebase.database.reference.child("users")
         for(i in 0 until 100) {
             val listener = object : ChildEventListener {
                 override fun onCancelled(databaseError: DatabaseError) {

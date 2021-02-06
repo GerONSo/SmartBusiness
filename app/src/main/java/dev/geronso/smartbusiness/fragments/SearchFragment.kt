@@ -20,6 +20,7 @@ import com.google.firebase.database.ktx.getValue
 import com.google.firebase.ktx.Firebase
 import dev.geronso.smartbusiness.*
 import kotlinx.android.synthetic.main.activity_registration.*
+import kotlinx.android.synthetic.main.fragment_new_post.*
 import kotlinx.android.synthetic.main.fragment_search.*
 
 

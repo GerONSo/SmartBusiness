@@ -38,6 +38,10 @@ class MenuActivity : AppCompatActivity() {
         viewModel.manager.openPostActivity = {
             openFragment(PostFragment())
         }
+        viewModel.manager.openSearchFragment = {
+            openFragment(searchFragment)
+        }
+
         bottom_bar.setOnNavigationItemSelectedListener { item ->
             when(item.itemId) {
                 R.id.search_item -> {
@@ -47,11 +51,6 @@ class MenuActivity : AppCompatActivity() {
 
                 R.id.new_post_item -> {
                     openFragment(newPostFragment)
-                    true
-                }
-
-                R.id.message_item -> {
-                    openFragment(messengerFragment)
                     true
                 }
 

@@ -31,6 +31,7 @@ class NewPostFragment : Fragment() {
         images.add(BitmapFactory.decodeResource(resources, R.drawable.city))
         btn_public.setOnClickListener {
             sendPost()
+            viewModel.manager.openSearchFragment()
         }
         pinco.backgroundTintList = ColorStateList.valueOf(resources.getColor(R.color.blackPrimary));
     }

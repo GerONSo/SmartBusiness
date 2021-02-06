@@ -11,10 +11,6 @@
         android:icon="@drawable/plus"
         android:title="new post" />
 
-    <item
-        android:id="@+id/message_item"
-        android:icon="@drawable/messenger"
-        android:title="messanger" />
 
     <item
         android:id="@+id/account_item"
