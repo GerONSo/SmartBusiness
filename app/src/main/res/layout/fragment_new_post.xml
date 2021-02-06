@@ -128,7 +128,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/text_post_next_page" />
 
-        <EditText
+        <Spinner
+            android:id="@+id/role_spinner"
+            android:layout_marginTop="26dp"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_post_next_page"/>
+
+        <Button
             android:id="@+id/new_post_time_start"
             style="@style/AppTheme.EditText"
             android:layout_width="120dp"
@@ -137,13 +147,12 @@
             android:layout_marginTop="26dp"
             android:fontFamily="@font/ubuntu"
             android:gravity="center"
-            android:hint="15:00 "
-            android:inputType="time"
+            android:text="15:00"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/new_post_role" />
+            app:layout_constraintTop_toBottomOf="@id/role_spinner" />
 
 
-        <EditText
+        <Button
             android:id="@+id/new_post_time_end"
             style="@style/AppTheme.EditText"
             android:layout_width="120dp"
@@ -153,9 +162,8 @@
             android:fontFamily="@font/ubuntu"
             android:gravity="center"
             android:hint="18:00 "
-            android:inputType="time"
             app:layout_constraintStart_toEndOf="@id/new_post_time_start"
-            app:layout_constraintTop_toBottomOf="@id/new_post_role" />
+            app:layout_constraintTop_toBottomOf="@id/role_spinner" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/pinco"

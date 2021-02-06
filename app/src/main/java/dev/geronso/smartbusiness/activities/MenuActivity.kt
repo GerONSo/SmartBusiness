@@ -37,6 +37,10 @@ class MenuActivity : AppCompatActivity() {
         viewModel.manager.openFilterActivity = {
             openFragment(filterFragment)
         }
+        viewModel.manager.getFragmentManager = {
+             supportFragmentManager
+        }
+
         viewModel.manager.openPostActivity = {
             openFragment(PostFragment())
         }
