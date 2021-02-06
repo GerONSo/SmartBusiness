@@ -4,6 +4,7 @@ import android.content.res.ColorStateList
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.Bundle
+import android.text.InputType
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -25,9 +26,12 @@ class NewPostFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         btn_next.setOnClickListener {
+
+
             fst_const.visibility = View.GONE
             second_const.visibility = View.VISIBLE
         }
+        new_post_time_start.setInputType(InputType.TYPE_CLASS_DATETIME)
         images.add(BitmapFactory.decodeResource(resources, R.drawable.city))
         btn_public.setOnClickListener {
             sendPost()
