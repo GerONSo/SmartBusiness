@@ -1,5 +1,6 @@
 package dev.geronso.smartbusiness.fragments
 
+import android.content.res.ColorStateList
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.Bundle
@@ -31,6 +32,7 @@ class NewPostFragment : Fragment() {
         btn_public.setOnClickListener {
             sendPost()
         }
+        pinco.backgroundTintList = ColorStateList.valueOf(resources.getColor(R.color.blackPrimary));
     }
 
     override fun onCreateView(

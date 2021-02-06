@@ -112,7 +112,7 @@
             android:layout_marginEnd="16dp"
             android:text="Выйти)"
             android:background="@drawable/btn_pink"
-            style="@style/AppTheme.EditText"
+            android:backgroundTint="@null"
             android:layout_marginBottom="16dp"
             android:layout_height="50dp"
             app:layout_constraintEnd_toEndOf="parent"
