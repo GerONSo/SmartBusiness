@@ -1,5 +1,6 @@
 package dev.geronso.smartbusiness.activities
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -21,6 +22,7 @@ class MenuActivity : AppCompatActivity() {
     lateinit var messengerFragment: MessengerFragment
     lateinit var accountFragment: AccountFragment
     lateinit var filterFragment: FilterFragment
+    lateinit var tagsFilterFragment: TagsFilterFragment
 
     private val viewModel: ViewModel by viewModels()
 
@@ -41,9 +43,18 @@ class MenuActivity : AppCompatActivity() {
         viewModel.manager.openSearchFragment = {
             openFragment(searchFragment)
         }
+        viewModel.manager.openTagsFilterFragment = {
+            openFragment(tagsFilterFragment)
+        }
+        viewModel.manager.openLoginActivity = {
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+        }
         viewModel.manager.popBackFragmentStack = {
             supportFragmentManager.popBackStack()
         }
+
+
 
         bottom_bar.setOnNavigationItemSelectedListener { item ->
             when(item.itemId) {
@@ -68,9 +79,7 @@ class MenuActivity : AppCompatActivity() {
         }
     }
 
-    override fun onBackPressed() {
-
-    }
+    override fun onBackPressed() {}
 
     private fun openFragment(fragment: Fragment) {
         supportFragmentManager.commit {
@@ -85,5 +94,6 @@ class MenuActivity : AppCompatActivity() {
         messengerFragment = MessengerFragment()
         accountFragment = AccountFragment()
         filterFragment = FilterFragment()
+        tagsFilterFragment = TagsFilterFragment()
     }
 }

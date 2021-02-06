@@ -15,7 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
 
-        android:visibility="gone">
+        android:visibility="visible">
 
         <TextView
             android:id="@+id/text_post"
@@ -98,10 +98,11 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/second_const"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/second_const"
-       >
+        android:visibility="gone">
+
         <TextView
             android:id="@+id/text_post_next_page"
             android:layout_width="wrap_content"
@@ -129,7 +130,6 @@
 
         <EditText
             android:id="@+id/new_post_time_start"
-            android:inputType="time"
             style="@style/AppTheme.EditText"
             android:layout_width="120dp"
             android:layout_height="50dp"
@@ -138,6 +138,7 @@
             android:fontFamily="@font/ubuntu"
             android:gravity="center"
             android:hint="15:00 "
+            android:inputType="time"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/new_post_role" />
 
@@ -146,28 +147,28 @@
             android:id="@+id/new_post_time_end"
             style="@style/AppTheme.EditText"
             android:layout_width="120dp"
-            android:inputType="time"
             android:layout_height="50dp"
             android:layout_marginStart="10dp"
             android:layout_marginTop="26dp"
             android:fontFamily="@font/ubuntu"
             android:gravity="center"
             android:hint="18:00 "
+            android:inputType="time"
             app:layout_constraintStart_toEndOf="@id/new_post_time_start"
             app:layout_constraintTop_toBottomOf="@id/new_post_role" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/pinco"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:fabSize="normal"
-            android:src="@drawable/back"
-            app:tint="@color/background"
-            android:id="@+id/pinco"
-            android:scaleType="centerCrop"
             android:layout_marginEnd="60dp"
             android:layout_marginBottom="50dp"
-            app:layout_constraintEnd_toStartOf="@id/photo_CL"
+            android:scaleType="centerCrop"
+            android:src="@drawable/back"
+            app:fabSize="normal"
             app:layout_constraintBottom_toTopOf="@id/imageSlider_new_post"
+            app:layout_constraintEnd_toStartOf="@id/photo_CL"
+            app:tint="@color/background"
 
             />
 

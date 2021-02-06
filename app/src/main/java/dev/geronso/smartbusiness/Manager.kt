@@ -8,7 +8,9 @@ object Manager {
     var openFilterActivity: () -> Unit = {}
     var openPostActivity: () -> Unit = {}
     var openSearchFragment: () -> Unit = {}
+    var openTagsFilterFragment: () -> Unit = {}
     var popBackFragmentStack: () -> Unit = {}
+    var openLoginActivity: () -> Unit = {}
     var filter = Filter("", mutableListOf(), this)
     var filter_: MutableLiveData<Filter> = MutableLiveData(filter)
     var postList: MutableList<BigPost> = mutableListOf(
@@ -18,4 +20,6 @@ object Manager {
     )
     var filteredPostList: MutableList<BigPost> = mutableListOf()
     var allPostList: MutableList<BigPost> = mutableListOf()
+    var tagList: MutableList<String> = mutableListOf()
+    var isCheckedTag: HashMap<String, Boolean> = hashMapOf()
 }

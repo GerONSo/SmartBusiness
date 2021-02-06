@@ -26,8 +26,6 @@ class NewPostFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         btn_next.setOnClickListener {
-
-
             fst_const.visibility = View.GONE
             second_const.visibility = View.VISIBLE
         }
@@ -37,7 +35,11 @@ class NewPostFragment : Fragment() {
             sendPost()
             viewModel.manager.openSearchFragment()
         }
-        pinco.backgroundTintList = ColorStateList.valueOf(resources.getColor(R.color.blackPrimary));
+        pinco.backgroundTintList = ColorStateList.valueOf(resources.getColor(R.color.blackPrimary))
+        pinco.setOnClickListener {
+            fst_const.visibility = View.VISIBLE
+            second_const.visibility = View.GONE
+        }
     }
 
     override fun onCreateView(

@@ -12,6 +12,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
+import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.database.ChildEventListener
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -42,7 +43,10 @@ class LoginActivity : AppCompatActivity() {
         val regButton = findViewById<TextView>(R.id.btn_register)
         val loginEditText = findViewById<EditText>(R.id.et_login)
         val passwordEditText = findViewById<EditText>(R.id.et_passwd)
-        val profileObserver = Observer<Profile> { startMenuActivity() }
+        val profileObserver = Observer<Profile> {
+            isCorrectLoginPassword(loginEditText.text.toString(), passwordEditText.text.toString())
+            startMenuActivity()
+        }
         regButton.setOnClickListener {
             viewModel.manager.currentProfile_.removeObserver(profileObserver)
             val intent = Intent(this, RegistrationActivity::class.java)
@@ -57,7 +61,7 @@ class LoginActivity : AppCompatActivity() {
     private fun isCorrectLoginPassword(login: String, password: String): Boolean {
 
         val database = Firebase.database.reference.child("users")
-        for(i in 0 until 100) {
+        for(i in 0 until 5) {
             val listener = object : ChildEventListener {
                 override fun onCancelled(databaseError: DatabaseError) {
                     Log.w("TAG", "listener:onCancelled", databaseError.toException())
@@ -73,6 +77,9 @@ class LoginActivity : AppCompatActivity() {
                         viewModel.manager.currentProfile_.value = profile
                         viewModel.manager.currentProfile = profile
                     }
+                    else {
+                        Snackbar.make(login_layout, "Неверный логин или пароль", Snackbar.LENGTH_SHORT).show()
+                    }
                 }
 
                 override fun onChildRemoved(snapshot: DataSnapshot) {}
@@ -87,5 +94,7 @@ class LoginActivity : AppCompatActivity() {
         val intent = Intent(this, MenuActivity::class.java)
         startActivity(intent)
     }
+
+    override fun onBackPressed() {}
 }
 

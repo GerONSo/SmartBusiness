@@ -28,6 +28,9 @@ class AccountFragment : Fragment() {
             layoutManager = rarLayoutManager
             adapter = FavouriteAdapter(viewModel.manager)
         }
+        exit_btn.setOnClickListener {
+            viewModel.manager.openLoginActivity()
+        }
         login_field.text = viewModel.manager.currentProfile?.login
     }
 

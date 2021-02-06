@@ -59,6 +59,13 @@ class SearchFragment : Fragment() {
         }
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        viewModel.manager.postList.clear()
+        viewModel.manager.allPostList.clear()
+        viewModel.manager.filteredPostList.clear()
+    }
+
     fun getPosts() {
         val database = Firebase.database.reference
         val listener = object : ChildEventListener {
