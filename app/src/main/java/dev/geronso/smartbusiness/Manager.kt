@@ -1,5 +1,7 @@
 package dev.geronso.smartbusiness
 
+
+import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.MutableLiveData
 
 object Manager {
@@ -8,6 +10,7 @@ object Manager {
     var openFilterActivity: () -> Unit = {}
     var openPostActivity: () -> Unit = {}
     var openSearchFragment: () -> Unit = {}
+    lateinit var getFragmentManager: () -> FragmentManager
     var popBackFragmentStack: () -> Unit = {}
     var filter = Filter("", mutableListOf(), this)
     var filter_: MutableLiveData<Filter> = MutableLiveData(filter)
