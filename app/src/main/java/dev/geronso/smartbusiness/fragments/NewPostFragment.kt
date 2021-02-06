@@ -100,7 +100,7 @@ class NewPostFragment : Fragment() {
             new_post_tags.text.toString(),
             new_post_text.text.toString(),
             new_post_contacts.text.toString(),
-            (new_post_role.text.toString() == "Заказчик"),
+            true,
             new_post_time_start.text.toString() + new_post_time_end.text.toString()
         )
         val database = Firebase.database.reference

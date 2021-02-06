@@ -17,11 +17,8 @@
         android:layout_height="25dp"
         android:layout_marginStart="8dp"
         android:layout_marginBottom="5dp"
-        android:background="@drawable/back_black"
-        app:layout_constraintStart_toStartOf="parent"
-
-
-        />
+        android:src="@drawable/back"
+        app:layout_constraintStart_toStartOf="parent"/>
 
     <com.smarteist.autoimageslider.SliderView
         android:id="@+id/imageSlider"
