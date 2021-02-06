@@ -8,6 +8,6 @@ object Manager {
     var openFilterActivity: () -> Unit = {}
     var filter = Filter("", mutableListOf(), this)
     var filter_: MutableLiveData<Filter> = MutableLiveData(filter)
-    var postList: MutableList<Post> = mutableListOf()
-    var allPostList: MutableList<Post> = mutableListOf()
+    var postList: MutableList<BigPost> = mutableListOf()
+    var allPostList: MutableList<BigPost> = mutableListOf()
 }

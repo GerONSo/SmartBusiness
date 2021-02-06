@@ -64,9 +64,7 @@ class MenuActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        if(viewModel.manager.currentProfile?.password == null) {
-            super.onBackPressed()
-        }
+
     }
 
     private fun openFragment(fragment: Fragment) {

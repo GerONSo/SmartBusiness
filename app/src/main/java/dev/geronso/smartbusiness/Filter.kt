@@ -5,10 +5,10 @@ class Filter (
     var tags: MutableList<String>,
     val manager: Manager
 ) {
-    fun getFilteredPosts() : MutableList<Post> {
-        val result = mutableListOf<Post>()
+    fun getFilteredPosts() : MutableList<BigPost> {
+        val result = mutableListOf<BigPost>()
         for(post in manager.allPostList) {
-            if(searchRequest.toLowerCase() in post.name.toLowerCase()) {
+            if(post.title?.toLowerCase()?.contains(searchRequest.toLowerCase())!!) {
                 result.add(post)
             }
         }

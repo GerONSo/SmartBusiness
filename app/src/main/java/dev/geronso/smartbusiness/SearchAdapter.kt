@@ -1,5 +1,7 @@
 package dev.geronso.smartbusiness
 
+import android.content.res.Resources
+import android.graphics.BitmapFactory
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,20 +16,25 @@ open class SearchAdapter(open val manager: Manager) : RecyclerView.Adapter<Searc
         val tags = view.card_tags!!
     }
 
+    lateinit var resources: Resources
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        resources = parent.resources
         return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.card, parent, false))
     }
 
     override fun getItemCount(): Int = manager.postList.size
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        manager.postList[position].image?.let {
-            holder.image.setImageBitmap(manager.postList[position].image)
-        }
-        holder.name.text = manager.postList[position].name
+//        manager.postList[position].image?.let {
+            holder.image.setImageBitmap(BitmapFactory.decodeResource(resources, R.drawable.city))
+//        }
+        holder.name.text = manager.postList[position].title
         var allTags = ""
-        for (tag in manager.postList[position].tags) {
-            allTags += "#$tag"
+        if(manager.postList[position].tags != null) {
+            for (tag in manager.postList[position].tags!!) {
+                allTags += "#$tag"
+            }
         }
         holder.tags.text = allTags
         // TODO callback to open post
