@@ -38,7 +38,7 @@ class LoginActivity : AppCompatActivity() {
         window.statusBarColor = ContextCompat.getColor(this, R.color.colorAccent)
         val regButton = findViewById<TextView>(R.id.btn_register)
         val loginEditText = findViewById<EditText>(R.id.et_login)
-        val passwordEditText = findViewById<EditText>(R.id.et_password)
+        val passwordEditText = findViewById<EditText>(R.id.et_passwd)
         val profileObserver = Observer<Profile> { startMenuActivity() }
         regButton.setOnClickListener {
             viewModel.manager.currentProfile_.removeObserver(profileObserver)
@@ -68,6 +68,7 @@ class LoginActivity : AppCompatActivity() {
                     val profile = snapshot.getValue<Profile>() as Profile
                     if(login == profile.login && password == profile.password) {
                         viewModel.manager.currentProfile_.value = profile
+                        viewModel.manager.currentProfile = profile
                     }
                 }
 

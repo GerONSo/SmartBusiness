@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:animateLayoutChanges="true"
     tools:context=".fragments.SearchFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -25,7 +26,8 @@
             android:id="@+id/et_search"
             style="@style/AppTheme.EditText"
             android:maxLines="1"
-            android:inputType="text"/>
+            android:inputType="text"
+            android:imeOptions="actionSearch"/>
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="0dp"

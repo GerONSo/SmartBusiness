@@ -33,9 +33,9 @@ class RegistrationActivity : AppCompatActivity() {
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
         window.statusBarColor = ContextCompat.getColor(this, R.color.colorAccent)
         val emailEditText = et_email
-        val phoneEditText = et_phone
+        val phoneEditText = et_phone_numer
         val loginEditText = et_login
-        val passwordEditText = findViewById<EditText>(R.id.et_password)
+        val passwordEditText = findViewById<EditText>(R.id.et_passwd)
         sendProfileId()
         btn_register.setOnClickListener {
             saveProfileData(

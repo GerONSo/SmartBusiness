@@ -6,9 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.card.view.*
 
-class SearchAdapter(
-    val postList: MutableList<Post>
-) : RecyclerView.Adapter<SearchAdapter.ViewHolder>() {
+open class SearchAdapter(open val manager: Manager) : RecyclerView.Adapter<SearchAdapter.ViewHolder>() {
 
     inner class ViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
         val image = view.card_image!!
@@ -20,15 +18,15 @@ class SearchAdapter(
         return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.card, parent, false))
     }
 
-    override fun getItemCount(): Int = postList.size
+    override fun getItemCount(): Int = manager.postList.size
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        postList[position].image?.let {
-            holder.image.setImageBitmap(postList[position].image)
+        manager.postList[position].image?.let {
+            holder.image.setImageBitmap(manager.postList[position].image)
         }
-        holder.name.text = postList[position].name
+        holder.name.text = manager.postList[position].name
         var allTags = ""
-        for (tag in postList[position].tags) {
+        for (tag in manager.postList[position].tags) {
             allTags += "#$tag"
         }
         holder.tags.text = allTags

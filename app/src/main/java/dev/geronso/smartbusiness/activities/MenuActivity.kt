@@ -32,6 +32,9 @@ class MenuActivity : AppCompatActivity() {
         window.statusBarColor = ContextCompat.getColor(this, R.color.background)
         initFragments()
         openFragment(searchFragment)
+        viewModel.manager.openFilterActivity = {
+            openFragment(filterFragment)
+        }
         bottom_bar.setOnNavigationItemSelectedListener { item ->
             when(item.itemId) {
                 R.id.search_item -> {
@@ -69,6 +72,7 @@ class MenuActivity : AppCompatActivity() {
     private fun openFragment(fragment: Fragment) {
         supportFragmentManager.commit {
             replace(R.id.menu_container_layout, fragment)
+            addToBackStack(null)
         }
     }
 
