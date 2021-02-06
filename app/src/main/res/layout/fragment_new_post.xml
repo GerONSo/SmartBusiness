@@ -1,138 +1,233 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout
 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.NewPostFragment">
 
 
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:id="@+id/fst_const"
+    android:layout_height="match_parent">
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_marginTop="8dp"
+    android:layout_height="wrap_content"
+    android:id="@+id/text_post"
+    android:fontFamily="@font/ubuntu"
+    android:text="Создание новой публикации"
+    android:textColor="#000000"
+    android:textSize="26sp"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    />
+
+    <EditText
+        android:id="@+id/new_post_title"
+        style="@style/AppTheme.EditText"
+        android:layout_width="250dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="26dp"
+        android:fontFamily="@font/ubuntu"
+        android:hint="Заголовок"
+
+        app:layout_constraintTop_toBottomOf="@id/text_post" />
+
+
+    <EditText
+        android:id="@+id/new_post_text"
+        android:layout_marginTop="26dp"
+        android:hint="Описание"
+        android:layout_width="250dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        style="@style/AppTheme.EditText"
+        android:fontFamily="@font/ubuntu"
+        android:layout_height="50dp"
+        app:layout_constraintTop_toBottomOf="@id/new_post_title" />
+
+    <EditText
+        android:id="@+id/new_post_tags"
+        android:layout_marginTop="26dp"
+        android:hint="Теги"
+        android:layout_width="250dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        style="@style/AppTheme.EditText"
+        android:fontFamily="@font/ubuntu"
+        android:layout_height="50dp"
+        app:layout_constraintTop_toBottomOf="@id/new_post_text" />
+
+    <EditText
+        android:id="@+id/new_post_contacts"
+        android:layout_width="250dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:hint="Контакты"
+        android:fontFamily="@font/ubuntu"
+        android:layout_marginTop="26dp"
+        style="@style/AppTheme.EditText"
+        android:layout_height="50dp"
+        app:layout_constraintTop_toBottomOf="@id/new_post_tags" />
+
+
+
+    <Button
+        android:id="@+id/btn_register"
+        android:layout_width="250dp"
+        android:layout_marginTop="16dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_black"
+        android:fontFamily="@font/ubuntu"
+        android:text="Далее"
+        app:backgroundTint="@null"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/new_post_contacts" />
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_constraintTop_toBottomOf="@id/fst_const">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/ubuntu"
+        android:id="@+id/text_post_next_page"
+        android:text="Создание новой публикации"
+        android:textColor="#000000"
+        android:textSize="26sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+    <EditText
+        android:id="@+id/new_post_role"
+        android:fontFamily="@font/ubuntu"
+        android:layout_marginTop="26dp"
+        android:hint="Ваша роль: заказчик или исполнитель"
+        android:layout_width="250dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        style="@style/AppTheme.EditText"
+        android:layout_height="50dp"
+        app:layout_constraintTop_toBottomOf="@id/text_post_next_page" />
+    <EditText
+        android:id="@+id/new_post_time_start"
+        android:fontFamily="@font/ubuntu"
+        android:layout_marginTop="26dp"
+        android:hint="15:00 "
+        android:gravity="center"
+        android:layout_width="120dp"
+        android:layout_marginStart="80dp"
+        app:layout_constraintStart_toStartOf="parent"
+        style="@style/AppTheme.EditText"
+        android:layout_height="50dp"
+        app:layout_constraintTop_toBottomOf="@id/new_post_role" />
+
+
+    <EditText
+        android:id="@+id/new_post_time_end"
+        android:fontFamily="@font/ubuntu"
+        android:layout_marginTop="26dp"
+        android:hint="18:00 "
+        android:layout_width="120dp"
+        android:gravity="center"
+        android:layout_marginStart="10dp"
+        app:layout_constraintStart_toEndOf="@id/new_post_time_start"
+        style="@style/AppTheme.EditText"
+        android:layout_height="50dp"
+        app:layout_constraintTop_toBottomOf="@id/new_post_role" />
+
+
+
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_width="150dp"
+        android:layout_height="120dp"
+        android:id="@+id/photo_CL"
+        app:layout_constraintTop_toBottomOf="@id/new_post_time_end"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@drawable/photo_back"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp">
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
+            android:id="@+id/new_photo_img"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+
+            android:scaleType="fitCenter"
+            android:background="#ch2ch4"
+            android:src="@drawable/camera"
+            />
 
         <TextView
-            android:id="@+id/text_post"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/new_photo_img"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             android:layout_marginTop="8dp"
-            android:text="Создание новой публикации"
+            android:text="Добавить фото"
             android:textColor="#000000"
-            android:textSize="26sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <EditText
-            android:id="@+id/new_post_title"
-            style="@style/AppTheme.EditText"
-            android:layout_width="250dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="26dp"
-            android:fontFamily="@font/ubuntu"
-            android:hint="Заголовок"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-
-            app:layout_constraintTop_toBottomOf="@id/text_post" />
-
-
-        <EditText
-            android:id="@+id/new_post_text"
-            style="@style/AppTheme.EditText"
-            android:layout_width="250dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="26dp"
-            android:fontFamily="@font/ubuntu"
-            android:hint="Описание"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/new_post_title" />
-
-        <EditText
-            android:id="@+id/new_post_tags"
-            style="@style/AppTheme.EditText"
-            android:layout_width="250dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="26dp"
-            android:fontFamily="@font/ubuntu"
-            android:hint="Теги"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/new_post_text" />
-
-        <EditText
-            android:id="@+id/new_post_contacts"
-            style="@style/AppTheme.EditText"
-            android:layout_width="250dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="26dp"
-            android:fontFamily="@font/ubuntu"
-            android:hint="Контакты"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/new_post_tags" />
-
-        <EditText
-            android:id="@+id/new_post_role"
-            style="@style/AppTheme.EditText"
-            android:layout_width="250dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="26dp"
-            android:fontFamily="@font/ubuntu"
-            android:hint="Ваша роль: заказчик или исполнитель"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/new_post_contacts" />
-
-        <ImageView
-            android:id="@+id/photo_add"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="16dp"
-            android:src="@drawable/plus"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/new_post_role" />
-
-        <com.smarteist.autoimageslider.SliderView
-            android:id="@+id/imageSlider_post"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_marginTop="16dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/photo_add"
-            app:sliderAnimationDuration="600"
-            app:sliderAutoCycleDirection="back_and_forth"
-            app:sliderAutoCycleEnabled="true"
-            app:sliderIndicatorAnimationDuration="600"
-            app:sliderIndicatorGravity="center_horizontal|bottom"
-            app:sliderIndicatorMargin="15dp"
-            app:sliderIndicatorOrientation="horizontal"
-            app:sliderIndicatorPadding="3dp"
-            app:sliderIndicatorRadius="2dp"
-            app:sliderIndicatorSelectedColor="#5A5A5A"
-            app:sliderIndicatorUnselectedColor="#FFF"
-            app:sliderScrollTimeInSec="1"
-            app:sliderStartAutoCycle="true" />
-
-        <Button
-            android:id="@+id/btn_register"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/btn_black"
-            android:fontFamily="@font/ubuntu"
-            android:text="Опубликовать"
-            app:backgroundTint="@null"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/imageSlider_post"
-            tools:layout_editor_absoluteX="60dp" />
-
+            />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-</FrameLayout>
+
+
+    <com.smarteist.autoimageslider.SliderView
+        android:id="@+id/imageSlider_new_post"
+        android:layout_marginTop="12dp"
+      app:layout_constraintTop_toBottomOf="@id/photo_CL"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        app:sliderAnimationDuration="600"
+        app:sliderAutoCycleDirection="back_and_forth"
+        app:sliderAutoCycleEnabled="true"
+        app:sliderIndicatorAnimationDuration="600"
+        app:sliderIndicatorGravity="center_horizontal|bottom"
+        app:sliderIndicatorMargin="15dp"
+        app:sliderIndicatorOrientation="horizontal"
+        app:sliderIndicatorPadding="3dp"
+        app:sliderIndicatorEnabled="false"
+        app:sliderIndicatorRadius="2dp"
+        app:sliderIndicatorSelectedColor="#5A5A5A"
+        app:sliderIndicatorUnselectedColor="#FFF"
+        app:sliderScrollTimeInSec="1"
+        app:sliderStartAutoCycle="true" />
+
+
+    <Button
+        android:id="@+id/btn_public"
+        android:layout_width="250dp"
+        android:layout_marginTop="16dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_black"
+        android:fontFamily="@font/ubuntu"
+        android:text="Опубликовать"
+        app:backgroundTint="@null"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageSlider_new_post" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
