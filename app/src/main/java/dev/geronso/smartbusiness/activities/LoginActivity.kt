@@ -82,6 +82,7 @@ class LoginActivity : AppCompatActivity() {
         return true
     }
 
+
     private fun startMenuActivity() {
         val intent = Intent(this, MenuActivity::class.java)
         startActivity(intent)

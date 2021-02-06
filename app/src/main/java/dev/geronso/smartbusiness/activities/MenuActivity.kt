@@ -41,6 +41,9 @@ class MenuActivity : AppCompatActivity() {
         viewModel.manager.openSearchFragment = {
             openFragment(searchFragment)
         }
+        viewModel.manager.popBackFragmentStack = {
+            supportFragmentManager.popBackStack()
+        }
 
         bottom_bar.setOnNavigationItemSelectedListener { item ->
             when(item.itemId) {

@@ -30,14 +30,16 @@
 
         <TextView
             android:id="@+id/card_name"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
+            android:ellipsize="end"
             android:fontFamily="@font/ubuntu"
             android:text="kek"
             android:textColor="@color/blackPrimary"
             android:textSize="18sp"
+            android:maxLines="2"
             app:layout_constraintBottom_toTopOf="@id/card_tags"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/card_image_layout" />

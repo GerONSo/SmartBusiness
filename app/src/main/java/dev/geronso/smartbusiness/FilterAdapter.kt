@@ -23,15 +23,15 @@ class FilterAdapter (val manager: Manager) : RecyclerView.Adapter<FilterAdapter.
     }
 
     override fun getItemCount(): Int {
-        return manager.postList.size
+        return manager.filteredPostList.size
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 //        manager.postList[position].image?.let {
         holder.image.setImageBitmap(BitmapFactory.decodeResource(resources, R.drawable.city))
 //        }
-        holder.name.text = manager.postList[0].title
-        var allTags = manager.postList[0].tags
+        holder.name.text = manager.filteredPostList[position].title
+        var allTags = manager.filteredPostList[position].tags
         holder.tags.text = allTags
         holder.view.setOnClickListener {
             manager.openPostActivity()

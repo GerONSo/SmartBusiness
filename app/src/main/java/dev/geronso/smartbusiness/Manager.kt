@@ -8,6 +8,7 @@ object Manager {
     var openFilterActivity: () -> Unit = {}
     var openPostActivity: () -> Unit = {}
     var openSearchFragment: () -> Unit = {}
+    var popBackFragmentStack: () -> Unit = {}
     var filter = Filter("", mutableListOf(), this)
     var filter_: MutableLiveData<Filter> = MutableLiveData(filter)
     var postList: MutableList<BigPost> = mutableListOf(

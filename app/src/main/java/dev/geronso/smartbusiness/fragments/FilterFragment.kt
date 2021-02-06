@@ -35,7 +35,6 @@ class FilterFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        getPosts()
         viewModel.manager.filteredPostList = viewModel.manager.filter.getFilteredPosts()
         et_search.setText(viewModel.manager.filter.searchRequest)
         et_search.setOnEditorActionListener { textView, actionId, keyEvent ->
@@ -48,6 +47,9 @@ class FilterFragment : Fragment() {
             }
             false
         }
+        back_btn.setOnClickListener {
+            viewModel.manager.popBackFragmentStack()
+        }
 
         val filterLayoutManager = GridLayoutManager(context, 2, LinearLayoutManager.VERTICAL, false)
         filterAdapter = FilterAdapter(viewModel.manager)
@@ -55,28 +57,5 @@ class FilterFragment : Fragment() {
             layoutManager = filterLayoutManager
             adapter = filterAdapter
         }
-    }
-
-    fun getPosts() {
-        val database = Firebase.database.reference
-        val listener = object : ChildEventListener {
-            override fun onCancelled(databaseError: DatabaseError) {
-                Log.w("TAG", "listener:onCancelled", databaseError.toException())
-            }
-
-            override fun onChildMoved(snapshot: DataSnapshot, previousChildName: String?) {}
-
-            override fun onChildChanged(snapshot: DataSnapshot, previousChildName: String?) {}
-
-            override fun onChildAdded(snapshot: DataSnapshot, previousChildName: String?) {
-                val post = snapshot.getValue<BigPost>() as BigPost
-                viewModel.manager.allPostList = mutableListOf(post)
-                viewModel.manager.postList = viewModel.manager.filter.getFilteredPosts()
-                filterAdapter.notifyDataSetChanged()
-            }
-
-            override fun onChildRemoved(snapshot: DataSnapshot) {}
-        }
-        database.child("posts").addChildEventListener(listener)
     }
 }

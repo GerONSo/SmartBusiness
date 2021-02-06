@@ -30,6 +30,9 @@ class SearchFragment : Fragment() {
     lateinit var searchAdapter: SearchAdapter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        viewModel.manager.postList.clear()
+        viewModel.manager.allPostList.clear()
+        viewModel.manager.filteredPostList.clear()
         getPosts()
         val searchLayoutManager = GridLayoutManager(context, 2, LinearLayoutManager.VERTICAL, false)
         searchAdapter = SearchAdapter(viewModel.manager)
@@ -48,6 +51,7 @@ class SearchFragment : Fragment() {
         et_search.setOnEditorActionListener { textView, actionId, keyEvent ->
             if(actionId == EditorInfo.IME_ACTION_SEARCH) {
                 viewModel.manager.filter.searchRequest = et_search.text.toString()
+                et_search.setText("")
                 viewModel.manager.openFilterActivity()
                 true
             }
@@ -68,7 +72,7 @@ class SearchFragment : Fragment() {
 
             override fun onChildAdded(snapshot: DataSnapshot, previousChildName: String?) {
                 val post = snapshot.getValue<BigPost>() as BigPost
-                viewModel.manager.allPostList = mutableListOf(post)
+                viewModel.manager.allPostList.add(post)
                 viewModel.manager.postList = viewModel.manager.allPostList
                 searchAdapter.notifyDataSetChanged()
             }
