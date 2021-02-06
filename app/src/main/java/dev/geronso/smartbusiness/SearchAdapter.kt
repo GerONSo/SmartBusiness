@@ -30,13 +30,11 @@ open class SearchAdapter(open val manager: Manager) : RecyclerView.Adapter<Searc
             holder.image.setImageBitmap(BitmapFactory.decodeResource(resources, R.drawable.city))
 //        }
         holder.name.text = manager.postList[position].title
-        var allTags = ""
-        if(manager.postList[position].tags != null) {
-            for (tag in manager.postList[position].tags!!) {
-                allTags += "#$tag"
-            }
-        }
+        var allTags = manager.postList[position].tags
         holder.tags.text = allTags
+        holder.view.setOnClickListener {
+            manager.openPostActivity()
+        }
         // TODO callback to open post
     }
 }

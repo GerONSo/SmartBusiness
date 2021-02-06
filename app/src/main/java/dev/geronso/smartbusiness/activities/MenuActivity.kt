@@ -35,6 +35,9 @@ class MenuActivity : AppCompatActivity() {
         viewModel.manager.openFilterActivity = {
             openFragment(filterFragment)
         }
+        viewModel.manager.openPostActivity = {
+            openFragment(PostFragment())
+        }
         bottom_bar.setOnNavigationItemSelectedListener { item ->
             when(item.itemId) {
                 R.id.search_item -> {
