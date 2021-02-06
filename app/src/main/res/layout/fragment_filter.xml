@@ -51,9 +51,9 @@
 
 
         <LinearLayout
+            android:id="@+id/filter_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/filter_layout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/search_CL">
@@ -75,10 +75,10 @@
                         android:layout_height="match_parent"
                         android:layout_marginStart="18dp"
                         android:background="#ffffff"
+                        android:outlineProvider="none"
                         android:text="Сортировать"
                         android:textColor="#000000"
                         app:backgroundTint="@null"
-                        android:outlineProvider="none"
                         app:layout_constraintStart_toStartOf="parent" />
                 </RelativeLayout>
 
@@ -93,10 +93,10 @@
                         android:layout_height="match_parent"
                         android:layout_marginEnd="18dp"
                         android:background="#ffffff"
+                        android:outlineProvider="none"
                         android:text="Фильтры"
                         android:textColor="#000000"
                         app:backgroundTint="@null"
-                        android:outlineProvider="none"
                         app:layout_constraintEnd_toEndOf="parent" />
 
                 </RelativeLayout>
@@ -109,7 +109,16 @@
             android:layout_height="0dp"
             android:overScrollMode="never"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/filter_layout" />
+            app:layout_constraintTop_toBottomOf="@id/filter_layout"
+            app:layout_constraintVertical_bias="1.0"
+            tools:layout_editor_absoluteX="83dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="20dp" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
