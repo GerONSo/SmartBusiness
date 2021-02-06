@@ -11,7 +11,6 @@
         android:layout_height="match_parent">
         <TextView
             android:layout_width="match_parent"
-            android:layout_marginTop=""
             android:layout_height="1dp"
             android:background="#000000"
             app:layout_constraintTop_toTopOf="@id/favorite"
@@ -26,7 +25,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="@+id/login_field"
             android:layout_marginBottom="8dp"
-            android:background="@drawable/edit"
+            android:background="@drawable/pen"
             />
         <TextView
         android:layout_width="match_parent"
@@ -36,6 +35,7 @@
         />
 
         <TextView
+            android:layout_marginTop="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/login_field"
